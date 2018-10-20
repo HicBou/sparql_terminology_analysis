@@ -11,28 +11,26 @@ different. That's why it is important to check to what they are related. That's 
 <h2>Semantic knowledge bases and query languages</h2>
 
 <h4>Semantic Web</h4>
-The Semantic Web is an extension of the World Wide Web which promoting specific common data formats and exchange protocols that can
+The Semantic Web is an extension of the World Wide Web which promotes specific common data formats and exchange protocols that can
 easily read by humans and computers, such as the RDF (Ressource Description Format). 
 
 <h4>Wikidata and knowledge bases</h4>
 A knowledge base is a technology used to store complex structured and unstructured information which can be automatically processed, 
-a "semantic database" in other words. It contains RDF documents that can queried. Wikidata, belonging to the Wikimedia 
+a "semantic database" in other words. It contains RDF documents that can be queried. Wikidata, belonging to the Wikimedia 
 Foundation (also owning Wikipedia) is one of them.
 
 <h4>SPARQL</h4>
-SPARQL is a RDF query language that can notably extract information from RDF Triplestores and knowledge bases. The scripts in Python given 
-in this repository used it to query Wikidata.
+SPARQL is a RDF query language that can notably extract information from RDF Triplestores and knowledge bases. The scripts in Python given in this repository used it to query Wikidata.
 
 <h2>Scoring Method</h2>
 
 <h3>General principle</h3>
 Our scoring method/metric tries to estimate a terminology matching rate between 2 segments (sentences or group of words) given as inputs. 
-We use therefore SPARQL queries to extract from Wikidata the concepts to what the segments are related, that is to say "upper" 
-domains/elements which contain them. For example, 
+We use therefore SPARQL queries to extract from Wikidata the concepts to what the segments are related, that is to say the "upper" 
+domains/elements which contain them. 
 
 To compare 2 complete sentences, we divide each of them into group of words (windows) and compare their associated concepts in Wikidata.
-If they have the same ones, they match. Otherwise, they probably don't have the same signification. According to the same principles, more
-windows match between both input segments, more probably the sentences share the same meaning too. The calculation steps 
+If they have the same ones, they match. Otherwise, they probably don't have the same signification. According to the same principles, more windows match between both input segments, more probably the sentences share the same meaning too. The calculation steps 
 are explained below :
 
 <h4>Window Score</h4>
@@ -44,10 +42,7 @@ The "Window Score" is thus given as :
 
 <h4>Full Segment Comparison Score</h4>
 
-For all possible windows of words from both sentences, we compute the window score. The maximum size of them is given as input parameter
-and can be changed by the user. If one sentence is longer than the other, we "fullfill" the shortest one with empty/null words. The user
-can also provide a condition : the position dependency. If it is activated, the algorithm will compare only windows of same size 
-starting from the same position (i-th word) in the sentence. Otherwise, by default, all combinations will be tested.
+For all possible windows of words from both sentences, we compute the window score. The maximum size of the window is given as input parameter and can be changed by the user. If one sentence is longer than the other, we "fullfill" the shortest one with empty/null words. The user can also provide a condition : the position dependency. If it is activated, the algorithm will compare only windows starting from the same position (i-th word) in the sentence. Otherwise, by default, all combinations will be tested.
 
 Then we add all "Window Scores" as following :
 
