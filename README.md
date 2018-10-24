@@ -89,7 +89,7 @@ Then, we could get the "Personalized F1 Measure" through :
 
 <h2>Credits</h2>
 
-Copyright (c) 2018, HicBou. Work released under Apache 2.0 License. 
+Copyright (c) 2018, HicBoux. Work released under Apache 2.0 License. 
 
 (Please contact me if you wish to use my work in specific conditions not allowed automatically by the Apache 2.0 License.)
 
