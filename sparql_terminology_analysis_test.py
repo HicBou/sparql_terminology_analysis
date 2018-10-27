@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: HicBou
+@author: HicBoux
 @keywords : Semantic Web, Natural Language Processing, SPARQL
 @copyright :  Copyright 2018, HicBou
 @license : https://creativecommons.org/licenses/by/4.0/
